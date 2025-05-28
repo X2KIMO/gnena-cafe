@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<style>
+#confirmationBox {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: black;
+  border: 4px solid #39FF14;
+  border-radius: 15px;
+  padding: 20px 30px;
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  box-shadow: 0 0 20px #39FF14, 0 0 30px #39FF14;
+  z-index: 9999;
+  animation: pulse 1.2s infinite;
+  display: none;
+}
+#confirmationBox button {
+  margin-top: 15px;
+  background-color: #39FF14;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 8px;
+}
+@keyframes pulse {
+  0% { box-shadow: 0 0 10px #39FF14; }
+  50% { box-shadow: 0 0 30px #39FF14; }
+  100% { box-shadow: 0 0 10px #39FF14; }
+}
+</style>
+
+<div id="confirmationBox"></div>
+
+</script>
+
+  <meta charset="UTF-8" />
+  <title>الشيشة</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo&family=Great+Vibes&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Cairo', sans-serif;
+      background: url('background.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+    }
+
+    h1 {
+      margin: 20px;
+      font-family: 'Cairo', sans-serif;
+      font-size: 32px;
+      color: #8b4513;
+      text-shadow: 0 0 10px #8b4513;
+      text-align: center;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column; /* ترتيب عمودي */
+      align-items: center;    /* توسيط العناصر أفقياً */
+      gap: 30px;              /* تباعد أكبر بين الكروت */
+      padding: 20px;
+      max-width: 600px;       /* عرض مناسب للكروت الكبيرة */
+      margin: 0 auto;
+    }
+
+    .card, .back-card {
+      background: rgba(0, 0, 0, 0.6);
+      border: 1px solid #8b4513;
+      box-shadow: 0 0 20px #a0522d, 0 0 40px #a0522d inset;
+      border-radius: 20px;
+      padding: 30px 40px;   /* حجم أكبر للبادينج */
+      width: 560px;         /* ضعف العرض الأصلي */
+      text-align: center;
+      transition: 0.3s;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
+      font-size: 40px;      /* ضعف حجم الخط */
+      color: #deb887;
+      font-family: 'Cairo', sans-serif;
+      user-select: none;
+      animation: pulseGlow 2.5s infinite;
+    }
+
+    .card:hover, .back-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 50px #ff8c00, 0 0 70px #ff8c00 inset;
+      border-color: #ff8c00;
+      color: #fff8dc;
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% {
+        box-shadow: 0 0 20px #a0522d, 0 0 40px #a0522d inset;
+        border-color: #a0522d;
+        color: #deb887;
+      }
+      50% {
+        box-shadow: 0 0 40px #ff8c00, 0 0 60px #ff8c00 inset;
+        border-color: #ff8c00;
+        color: #fff8dc;
+      }
+    }
+
+    .name-ar {
+      font-size: 36px;
+      font-weight: bold;
+      flex: 1;
+      text-align: right;
+      color: white;
+    }
+
+    .name-en {
+      font-family: 'Great Vibes', cursive;
+      font-size: 38px;
+      color: #deb887;
+      flex: 1;
+      text-align: left;
+      white-space: nowrap;
+    }
+
+    .price {
+      font-size: 32px;
+      color: #d2b48c;
+      min-width: 120px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>الشيشة 🍂</h1>
+
+  <div class="container">
+    <!-- زر الرجوع ككارت -->
+    <div class="back-card" onclick="window.location.href='index.html'">
+      الرجوع للقائمة الرئيسية
+    </div>
+
+    <div class="card">
+      <div class="name-ar">تفاحه</div>
+      <div class="name-en">Apple</div>
+      <div class="price">السعر: 50 جنيه</div>
+    </div>
+
+    <div class="card">
+      <div class="name-ar">خوخ</div>
+      <div class="name-en">Peach</div>
+      <div class="price">السعر: 50 جنيه</div>
+    </div>
+
+    <div class="card">
+      <div class="name-ar">علكه</div>
+      <div class="name-en">Gum</div>
+      <div class="price">السعر: 50 جنيه</div>
+    </div>
+
+    <div class="card">
+      <div class="name-ar">عنب / عنب و نعناع</div>
+      <div class="name-en">Grape / Grape & Mint</div>
+      <div class="price">السعر: 50 جنيه</div>
+    </div>
+
+    <div class="card">
+      <div class="name-ar">بطيخ</div>
+      <div class="name-en">Watermelon</div>
+      <div class="price">السعر: 50 جنيه</div>
+    </div>
+
+    <div class="card">
+      <div class="name-ar">بلوبيري</div>
+      <div class="name-en">Blueberry</div>
+      <div class="price">السعر: 50 جنيه</div>
+    </div>
+
+    <div class="card">
+      <div class="name-ar">فواكه</div>
+      <div class="name-en">Fruits</div>
+      <div class="price">السعر: 50 جنيه</div>
+    </div>
+
+    <div class="card">
+      <div class="name-ar">برتقال</div>
+      <div class="name-en">Orange</div>
+      <div class="price">السعر: 50 جنيه</div>
+    </div>
+
+    <div class="card">
+      <div class="name-ar">كيوي</div>
+      <div class="name-en">Kiwi</div>
+      <div class="price">السعر: 50 جنيه</div>
+    </div>
+
+    <div class="card">
+      <div class="name-ar">لمون</div>
+      <div class="name-en">Lemon</div>
+      <div class="price">السعر: 50 جنيه</div>
+    </div>
+
+    <div class="card">
+      <div class="name-ar">توت</div>
+      <div class="name-en">Berry</div>
+      <div class="price">السعر: 50 جنيه</div>
+    </div>
+
+    <div class="card">
+      <div class="name-ar">فراوله</div>
+      <div class="name-en">Strawberry</div>
+      <div class="price">السعر: 50 جنيه</div>
+    </div>
+
+    <div class="card">
+      <div class="name-ar">موز</div>
+      <div class="name-en">Banana</div>
+      <div class="price">السعر: 50 جنيه</div>
+    </div>
+
+    <div class="card">
+      <div class="name-ar">سلوم</div>
+      <div class="name-en">Saloum</div>
+      <div class="price">السعر: 15جنيه</div>
+    </div>
+
+    <div class="card">
+      <div class="name-ar">قص</div>
+      <div class="name-en">Qass</div>
+      <div class="price">السعر: 17جنيه</div>
+    </div>
+
+  </div>
+
+</body>
+</html>

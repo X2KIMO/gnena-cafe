@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<style>
+#confirmationBox {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: black;
+  border: 4px solid #39FF14;
+  border-radius: 15px;
+  padding: 20px 30px;
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  box-shadow: 0 0 20px #39FF14, 0 0 30px #39FF14;
+  z-index: 9999;
+  animation: pulse 1.2s infinite;
+  display: none;
+}
+#confirmationBox button {
+  margin-top: 15px;
+  background-color: #39FF14;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 8px;
+}
+@keyframes pulse {
+  0% { box-shadow: 0 0 10px #39FF14; }
+  50% { box-shadow: 0 0 30px #39FF14; }
+  100% { box-shadow: 0 0 10px #39FF14; }
+}
+</style>
+
+<div id="confirmationBox"></div>
+
+<script>
+function confirmOrder(itemName) {
+  const box = document.getElementById('confirmationBox');
+  box.innerHTML = `أنت على وشك الحصول على (${itemName})<br>هل تريد التأكيد؟<br>
+    <button onclick="sendToTelegram('8162148889:AAGmLt4-HeHvtfKMYpDwC3mv3303Tde9W20', '7343258920', '${itemName}')">نعم، تأكيد</button>`;
+  box.style.display = 'block';
+  setTimeout(() => { box.style.display = 'none'; }, 10000);
+}
+
+function sendToTelegram(token, chatId, itemName) {
+  const message = `📦 طلب جديد:\n${itemName}`;
+  fetch("https://api.telegram.org/bot" + token + "/sendMessage", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      chat_id: chatId,
+      text: message
+    })
+  })
+  .then(res => res.ok ? alert("✅ تم إرسال الطلب لتليجرام!") : alert("❌ فشل في الإرسال"))
+  .catch(err => alert("🚫 حدث خطأ في الإرسال"));
+}
+</script>
+
+  <meta charset="UTF-8" />
+  <title>الكيك والحلويات</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo&family=Great+Vibes&display=swap" rel="stylesheet" />
+  <style>
+    @keyframes neonPulse {
+      0%, 100% {
+        box-shadow:
+          0 0 10px #d2691e,
+          0 0 20px #d2691e,
+          0 0 30px #d2691e,
+          0 0 40px #d2691e,
+          0 0 50px #d2691e;
+      }
+      50% {
+        box-shadow:
+          0 0 20px #d2691e,
+          0 0 30px #d2691e,
+          0 0 40px #d2691e,
+          0 0 60px #d2691e,
+          0 0 70px #d2691e;
+      }
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Cairo', sans-serif;
+      background: url('background.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 30px;
+      color: #d2691e;
+      text-shadow: 0 0 15px #d2691e;
+      font-family: 'Cairo', sans-serif;
+      font-size: 48px;
+      font-weight: 900;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 25px;
+      padding: 50px 20px;
+    }
+
+    .drink-card {
+      background: rgba(0, 0, 0, 0.65);
+      border: 2px solid #d2691e;
+      border-radius: 20px;
+      padding: 25px 30px;
+      width: 810px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      direction: rtl;
+      animation: neonPulse 3s ease-in-out infinite alternate;
+      box-sizing: border-box;
+    }
+
+    .drink-card:hover {
+      transform: scale(1.07);
+      box-shadow:
+        0 0 30px #d2691e,
+        0 0 50px #d2691e inset;
+    }
+
+    .drink-name-ar {
+      font-size: 28px;
+      font-weight: 700;
+      flex: 1;
+      text-align: right;
+      color: #ffd9b3;
+      user-select: none;
+    }
+
+    .drink-name-en {
+      font-family: 'Great Vibes', cursive;
+      font-size: 32px;
+      color: #ffbb44;
+      flex: 1;
+      text-align: left;
+      white-space: nowrap;
+      user-select: none;
+    }
+
+    .drink-price {
+      font-size: 24px;
+      color: #ffaa00;
+      min-width: 140px;
+      text-align: center;
+      font-weight: 600;
+      user-select: none;
+    }
+
+    .back-card {
+      background: rgba(0, 0, 0, 0.65);
+      border: 2px solid #d2691e;
+      border-radius: 20px;
+      padding: 25px 30px;
+      width: 810px;
+      text-align: center;
+      font-size: 28px;
+      color: #ffbb44;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: neonPulse 3s ease-in-out infinite alternate;
+      user-select: none;
+      box-sizing: border-box;
+    }
+
+    .back-card:hover {
+      transform: scale(1.07);
+      box-shadow:
+        0 0 30px #d2691e,
+        0 0 50px #d2691e inset;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🍰 الكيك والحلويات</h1>
+
+  <div class="container">
+
+    <div class="back-card" onclick="window.location.href='index.html'">
+      ⬅ رجوع للقائمة الرئيسية
+    </div>
+
+    <div class="drink-card">
+      <div class="drink-name-ar">براونيز</div>
+      <div class="drink-name-en">Brownies</div>
+      <div class="drink-price">السعر: 40 جنيه</div>
+    </div>
+
+    <div class="drink-card">
+      <div class="drink-name-ar">مولتن كيك</div>
+      <div class="drink-name-en">Molten Cake</div>
+      <div class="drink-price">السعر: 49جنيه</div>
+    </div>
+
+    <div class="drink-card">
+      <div class="drink-name-ar">براونيز آيس كريم</div>
+      <div class="drink-name-en">Brownie with Ice Cream</div>
+      <div class="drink-price">السعر: 49جنيه</div>
+    </div>
+
+    <div class="drink-card">
+      <div class="drink-name-ar">ميني كيك لوتس</div>
+      <div class="drink-name-en">Mini Lotus Cake</div>
+      <div class="drink-price">السعر: 49جنيه</div>
+    </div>
+
+    <div class="drink-card">
+      <div class="drink-name-ar">وافل</div>
+      <div class="drink-name-en">Waffle</div>
+      <div class="drink-price">السعر: 45جنيه</div>
+    </div>
+
+    <div class="drink-card">
+      <div class="drink-name-ar">وافل آيس كريم (شوكلت – كراميل – فراولة)</div>
+      <div class="drink-name-en">Waffle with Ice Cream</div>
+      <div class="drink-price">السعر: 52جنيه</div>
+    </div>
+
+    <div class="drink-card">
+      <div class="drink-name-ar">وافل نوتيلا</div>
+      <div class="drink-name-en">Nutella Waffle</div>
+      <div class="drink-price">السعر: 55جنيه</div>
+    </div>
+
+    <div class="drink-card">
+      <div class="drink-name-ar">وافل أوريو نوتيلا</div>
+      <div class="drink-name-en">Oreo Nutella Waffle</div>
+      <div class="drink-price">السعر: 62جنيه</div>
+    </div>
+
+    <div class="drink-card">
+      <div class="drink-name-ar">وافل لوتس</div>
+      <div class="drink-name-en">Lotus Waffle</div>
+      <div class="drink-price">السعر: 26جنيه</div>
+    </div>
+
+  </div>
+
+</body>
+</html>

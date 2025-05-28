@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<style>
+#confirmationBox {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: black;
+  border: 4px solid #39FF14;
+  border-radius: 15px;
+  padding: 20px 30px;
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  box-shadow: 0 0 20px #39FF14, 0 0 30px #39FF14;
+  z-index: 9999;
+  animation: pulse 1.2s infinite;
+  display: none;
+}
+#confirmationBox button {
+  margin-top: 15px;
+  background-color: #39FF14;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 8px;
+}
+@keyframes pulse {
+  0% { box-shadow: 0 0 10px #39FF14; }
+  50% { box-shadow: 0 0 30px #39FF14; }
+  100% { box-shadow: 0 0 10px #39FF14; }
+}
+</style>
+
+<div id="confirmationBox"></div>
+
+<script>
+</script>
+
+  <meta charset="UTF-8" />
+  <title>المشروبات الباردة | Cold Drinks</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Cairo', sans-serif;
+      background-image: url('background.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color: white;
+    }
+
+    .header {
+      text-align: center;
+      padding: 54px 18px 18px; /* 60px * 0.9 = 54 */
+      color: #00ffff;
+      text-shadow: 0 0 15px #00ffff;
+      font-size: 57.6px; /* 64px * 0.9 */
+      font-weight: 700;
+    }
+
+    .back-button {
+      display: block;
+      width: fit-content;
+      margin: 0 auto 36px; /* 40px * 0.9 */
+      padding: 18px 36px; /* 20px 40px * 0.9 */
+      background-color: transparent;
+      color: #00ffff;
+      border: 3px solid #00ffff;
+      border-radius: 18px; /* 20px * 0.9 */
+      text-decoration: none;
+      font-size: 32.4px; /* 36px * 0.9 */
+      box-shadow: 0 0 18px #00ffff; /* 20px * 0.9 */
+      transition: 0.3s;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .back-button:hover {
+      background-color: #00ffff;
+      color: black;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto 72px; /* 80px * 0.9 */
+      padding: 0 36px; /* 40px * 0.9 */
+    }
+
+    .category {
+      margin-bottom: 72px; /* 80px * 0.9 */
+    }
+
+    .category-title {
+      font-size: 50.4px; /* 56px * 0.9 */
+      font-weight: 700;
+      color: #00ffff;
+      margin-bottom: 27px; /* 30px * 0.9 */
+      border-bottom: 3px solid #00ffff;
+      padding-bottom: 9px; /* 10px * 0.9 */
+    }
+
+    .category-subtitle {
+      font-size: 32.4px; /* 36px * 0.9 */
+      color: #a0e8e8;
+      margin-bottom: 36px; /* 40px * 0.9 */
+      font-style: italic;
+    }
+
+    @keyframes pulseNeon {
+      0%, 100% {
+        box-shadow:
+          0 0 30px #00ffff,
+          0 0 60px #00ffff,
+          0 0 90px #00ffff,
+          0 0 120px #00ffff;
+        border-color: #00ffff;
+        color: #00ffff;
+      }
+      50% {
+        box-shadow:
+          0 0 10px #00ffff,
+          0 0 20px #00ffff,
+          0 0 30px #00ffff,
+          0 0 40px #00ffff;
+        border-color: #33ffff;
+        color: #33ffff;
+      }
+    }
+
+    .drinks-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 27px; /* 30px * 0.9 */
+      align-items: center;
+    }
+
+    .drink-card {
+      background: rgba(0, 0, 0, 0.7);
+      border: 3px solid #00ffff;
+      box-shadow:
+        0 0 30px #00ffff,
+        0 0 60px #00ffff inset;
+      border-radius: 36px; /* 40px * 0.9 */
+      padding: 45px 54px; /* 50px 60px * 0.9 */
+      width: 95%;
+      max-width: 810px; /* 900px * 0.9 */
+      text-align: center;
+      font-size: 36px; /* 40px * 0.9 */
+      font-weight: 700;
+      cursor: default;
+      animation: pulseNeon 3s ease-in-out infinite;
+      transition: transform 0.3s;
+    }
+
+    .drink-card:hover {
+      transform: scale(1.04);
+      animation-play-state: paused;
+      box-shadow:
+        0 0 60px #00ffff,
+        0 0 120px #00ffff inset;
+      border-color: #00ffff;
+      color: #00ffff;
+    }
+
+    .drink-name {
+      direction: rtl;
+      font-weight: 900;
+      margin-bottom: 18px; /* 20px * 0.9 */
+    }
+
+    .drink-name i {
+      font-weight: 400;
+      font-style: italic;
+      color: #a0e8e8;
+      font-size: 0.9em;
+    }
+
+    .drink-price {
+      font-size: 32.4px; /* 36px * 0.9 */
+      color: #00ffcc;
+      font-weight: 800;
+      margin-top: 14.4px; /* 16px * 0.9 */
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="header">🧊 المشروبات الباردة | Cold Drinks</div>
+
+  <a href="index.html" class="back-button">⬅ الرجوع للقائمة الرئيسية</a>
+
+  <div class="container">
+
+    <section class="category">
+      <div class="category-title">🥤 الميلك شيك | Milkshakes</div>
+      <div class="drinks-grid">
+        <div class="drink-card">
+          <div class="drink-name">فانيليا / شوكولاتة – <i>Vanilla / Chocolate</i></div>
+          <div class="drink-price">43 جنيه</div>
+        </div>
+        <div class="drink-card">
+          <div class="drink-name">كراميل / فراولة – <i>Caramel / Strawberry</i></div>
+          <div class="drink-price">43 جنيه</div>
+        </div>
+        <div class="drink-card">
+          <div class="drink-name">موز – <i>Banana</i></div>
+          <div class="drink-price">43 جنيه</div>
+        </div>
+        <div class="drink-card">
+          <div class="drink-name">مانجو – <i>Mango</i></div>
+          <div class="drink-price">48 جنيه</div>
+        </div>
+        <div class="drink-card">
+          <div class="drink-name">ميكس بيري – <i>Mixed Berries</i></div>
+          <div class="drink-price">48 جنيه</div>
+        </div>
+        <div class="drink-card">
+          <div class="drink-name">أوريو – <i>Oreo</i></div>
+          <div class="drink-price">49 جنيه</div>
+        </div>
+        <div class="drink-card">
+          <div class="drink-name">سنيكرز – <i>Snickers</i></div>
+          <div class="drink-price">49 جنيه</div>
+        </div>
+        <div class="drink-card">
+          <div class="drink-name">كلاسيك آيس كريم – <i>Classic Ice Cream</i></div>
+          <div class="drink-price">36 جنيه</div>
+        </div>
+        <div class="drink-card">
+          <div class="drink-name">نوتيلا – <i>Nutella</i></div>
+          <div class="drink-price">53 جنيه</div>
+        </div>
+        <div class="drink-card">
+          <div class="drink-name">براونيز – <i>Brownies</i></div>
+          <div class="drink-price">54 جنيه</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="category">
+      <div class="category-title">🍹 الكوكتيلات | Cocktails</div>
+      <div class="drinks-grid">
+        <div class="drink-card">
+          <div class="drink-name">ميكس جنينة (أناناس - كيوي - فراولة - موز - عسل - صوص فراولة) – <i>Garden Mix</i></div>
+          <div class="drink-price">43 جنيه</div>
+        </div>
+        <div class="drink-card">
+          <div class="drink-name">ميكس جنينة (مانجو - خوخ) – <i>Mango & Peach Mix</i></div>
+          <div class="drink-price">54 جنيه</div>
+        </div>
+        <div class="drink-card">
+          <div class="drink-name">بينا كولادا – <i>Pina Colada</i></div>
+          <div class="drink-price">50 جنيه</div>
+        </div>
+        <div class="drink-card">
+          <div class="drink-name">جرين سمر – <i>Green Summer</i></div>
+          <div class="drink-price">50 جنيه</div>
+        </div>
+        <div class="drink-card">
+          <div class="drink-name">ميكس سيزون فروت (فراولة - مانجو - تفاح - جوز هند) – <i>Seasonal Fruit Mix</i></div>
+          <div class="drink-price">59 جنيه</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="category">
+      <div class="category-title">🧊 الموخيتو | Mojito</div>
+      <div class="drinks-grid">
+        <div class="drink-card">
+          <div class="drink-name">شيري كولا – <i>Cherry Cola</i></div>
+          <div class="drink-price">42 جنيه</div>
+        </div>
+        <div class="drink-card">
+          <div class="drink-name">صن شاين – <i>Sunshine</i></div>
+          <div class="drink-price">42 جنيه</div>
+        </div>
+        <div class="drink-card">
+          <div class="drink-name">موخيتو كلاسيك – <i>Classic Mojito</i></div>
+          <div class="drink-price">45 جنيه</div>
+        </div>
+        <div class="drink-card">
+          <div class="drink-name">موخيتو فليڤر (خوخ، توت أزرق، توت وردي، كيوي، كرز، فراولة) – <i>Flavored Mojito (Peach, Blueberry, Pink Berry, Kiwi, Cherry, Strawberry)</i></div>
+          <div class="drink-price">49 جنيه</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="category">
+      <div class="category-title">🍑 الشاي المثلج | Iced Tea</div>
+      <div class="drinks-grid">
+        <div class="drink-card">
+          <div class="drink-name">خوخ – <i>Peach</i></div>
+          <div class="drink-price">35 جنيه</div>
+        </div>
+        <div class="drink-card">
+          <div class="drink-name">باشن فروت – <i>Passion Fruit</i></div>
+          <div class="drink-price">35 جنيه</div>
+        </div>
+        <div class="drink-card">
+          <div class="drink-name">فواكه – <i>Fruits</i></div>
+          <div class="drink-price">35 جنيه</div>
+        </div>
+        <div class="drink-card">
+          <div class="drink-name">بلو بيري – <i>Blueberry</i></div>
+          <div class="drink-price">35 جنيه</div>
+        </div>
+        <div class="drink-card">
+          <div class="drink-name">راسبيري – <i>Raspberry</i></div>
+          <div class="drink-price">35 جنيه</div>
+        </div>
+        <div class="drink-card">
+          <div class="drink-name">بلو باشن – <i>Blue Passion</i></div>
+          <div class="drink-price">35 جنيه</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="category">
+      <div class="category-title">🥤 مشروبات باردة | Soft Drinks</div>
+      <div class="drinks-grid">
+        <div class="drink-card">
+          <div class="drink-name">مياه – <i>Water</i></div>
+          <div class="drink-price">9 جنيه</div>
+        </div>
+        <div class="drink-card">
+          <div class="drink-name">كان – <i>Can</i></div>
+          <div class="drink-price">35 جنيه</div>
+        </div>
+        <div class="drink-card">
+          <div class="drink-name">بيبسي – <i>Pepsi</i></div>
+          <div class="drink-price">25 جنيه</div>
+        </div>
+<div class="drink-card">
+          <div class="drink-name">اسبيرو سباتس– <i>sp-s</i></div>
+          <div class="drink-price">22 جنيه</div>
+        </div>
+<div class="drink-card">
+          <div class="drink-name">فيروز – <i>faurouz</i></div>
+          <div class="drink-price">27 جنيه</div>
+        </div>
+<div class="drink-card">
+          <div class="drink-name">بريل – <i>peril</i></div>
+          <div class="drink-price">27 جنيه</div>
+        </div>
+<div class="drink-card">
+          <div class="drink-name">ريد بول – <i>Red bull</i></div>
+          <div class="drink-price">50 جنيه</div>
+        </div>
+    <section class="category">
+      <div class="category-title">🍑 اضافات | Extras</div>
+      <div class="drinks-grid">
+        <div class="drink-card">
+<div class="drink-card">
+          <div class="drink-name">عسل – <i>honey</i></div>
+          <div class="drink-price">12 جنيه</div>
+        </div>
+<div class="drink-card">
+          <div class="drink-name">فلفر – <i>flover</i></div>
+          <div class="drink-price">13 جنيه</div>
+      </div>
+<div class="drink-card">
+          <div class="drink-name">صوص – <i>saus</i></div>
+          <div class="drink-price">14 جنيه</div>
+        </div>
+<div class="drink-card">
+          <div class="drink-name">لبن – <i>milk</i></div>
+          <div class="drink-price">15 جنيه</div>
+        </div>
+<div class="drink-card">
+          <div class="drink-name">ايس كريم– <i>ice cream</i></div>
+          <div class="drink-price">17 جنيه</div>
+        </div>
+<div class="drink-card">
+          <div class="drink-name"> نوتيلا– <i>notella</i></div>
+          <div class="drink-price">15 جنيه</div>
+        </div>
+
+    <section class="category">
+      <div class="category-title"> جنينه كافيه مجهز لاعياد الميلاد ب اسعار خياليه | happy brthday</div>
+      <div class="drinks-grid">
+        </div>
+
+
+
+    </section>
+
+  </div>
+
+</body>
+</html>
